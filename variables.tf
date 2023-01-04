@@ -25,24 +25,13 @@ variable "enable_azure" {
   default     = false
 }
 
-variable "azure_locations" {
-  description = "Azure Locations"
-  type        = list(string)
-  default     = ["eastus", "westus"]
-}
-
 variable "azure_resource_group_name" {
   description = "Azure Resource Group Name"
   type        = string
 }
 
-variable "azure_resource_group_location" {
-  description = "Azure Resource Group Location"
-  type        = string
-}
-
-variable "azure_virtual_network_locations" {
-  description = "Azure Virtual Network Locations"
+variable "azure_locations" {
+  description = "Azure Locations"
   type        = list(string)
   default     = ["eastus", "westus"]
 }

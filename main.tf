@@ -21,8 +21,6 @@ module "azure_primary" {
   count                    = var.enable_azure ? 1 : 0
   location                 = var.azure_locations[0]
   resource_group_name      = var.azure_resource_group_name
-  resource_group_location  = var.azure_resource_group_location
-  virtual_network_location = var.azure_virtual_network_locations[0]
   virtual_network_name     = var.azure_virtual_network_names[0]
   address_space            = var.azure_address_spaces[0]
   providers = {
@@ -35,8 +33,6 @@ module "azure_secondary" {
   count                    = var.enable_azure ? 1 : 0
   location                 = var.azure_locations[1]
   resource_group_name      = var.azure_resource_group_name
-  resource_group_location  = var.azure_resource_group_location
-  virtual_network_location = var.azure_virtual_network_locations[1]
   virtual_network_name     = var.azure_virtual_network_names[1]
   address_space            = var.azure_address_spaces[1]
   providers = {
