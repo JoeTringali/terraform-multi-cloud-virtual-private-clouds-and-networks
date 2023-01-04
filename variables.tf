@@ -6,15 +6,12 @@ variable "enable_aws" {
   default     = false
 }
 
-variable "aws_cidr_blocks" {
-  description = "AWS CIDR Blocks"
-  type        = list(string)
-}
-
-variable "aws_region_names" {
-  description = "AWS Region Names"
-  type        = list(string)
-  default     = ["us-east-1", "us-west-1"]
+variable "aws_vpc_configuration_data" {
+  description = "AWS VPC Configuration Data"
+  type = list(object({
+    cidr_block = string
+    region     = string
+  }))
 }
 
 ## Azure Variables
@@ -25,24 +22,12 @@ variable "enable_azure" {
   default     = false
 }
 
-variable "azure_resource_group_name" {
-  description = "Azure Resource Group Name"
-  type        = string
-}
-
-variable "azure_locations" {
-  description = "Azure Locations"
-  type        = list(string)
-  default     = ["eastus", "westus"]
-}
-
-variable "azure_virtual_network_names" {
-  description = "Azure Virtual Network Names"
-  type        = list(string)
-  default     = ["my-primary-virtual-network", "my-secondary-virtual-network"]
-}
-
-variable "azure_address_spaces" {
-  description = "Azure Address Spaces"
-  type        = list(list(string))
+variable "azure_virtual_network_configuration_data" {
+  description = "Azure Virtual Network Configuration Data"
+  type = list(object({
+    address_space       = list(string)
+    location            = string
+    name                = string
+    resource_group_name = string
+  }))
 }
