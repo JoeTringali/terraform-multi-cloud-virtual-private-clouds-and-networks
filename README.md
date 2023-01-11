@@ -82,7 +82,7 @@ azure_virtual_network_configuration_data = [
   terraform fmt
 ```
 
-5. See what it's expecting for the resource group:
+5. See what it's expecting for the resources to be deployed:
 
 ```
   terraform plan
