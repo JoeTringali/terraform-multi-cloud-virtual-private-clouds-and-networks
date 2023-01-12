@@ -92,7 +92,7 @@ azure_virtual_network_configuration_data = [
 6.  Deploy your AWS VPCs and/or Azure virtual networks:
 
 ```
-terraform apply
+  terraform apply
 ```
 
 7. Enter `yes` at the prompt. It will then take a few minutes to finish running.
@@ -103,7 +103,7 @@ proceeding.
 9. Confirm that resources were deployed:
 
 ```
-terraform state list
+  terraform state list
 ```
 
 10. Check the returned list of resources to ensure everything was successfully deployed.
