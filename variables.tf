@@ -5,6 +5,7 @@ variable "aws_vpc_configuration_data" {
   type = list(object({
     cidr_block = string
     region     = string
+    tags       = map(string)
   }))
 }
 
@@ -17,5 +18,6 @@ variable "azure_virtual_network_configuration_data" {
     location            = string
     name                = string
     resource_group_name = string
+    tags                = map(string)
   }))
 }
