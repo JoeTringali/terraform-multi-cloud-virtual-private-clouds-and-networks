@@ -21,13 +21,14 @@ module "aws_secondary" {
 }
 
 module "azure" {
-  source               = "./modules/azure"
-  count                = length(var.azure_virtual_network_configuration_data)
-  location             = var.azure_virtual_network_configuration_data[count.index].location
-  resource_group_name  = var.azure_virtual_network_configuration_data[count.index].resource_group_name
-  virtual_network_name = var.azure_virtual_network_configuration_data[count.index].name
-  address_space        = var.azure_virtual_network_configuration_data[count.index].address_space
-  tags                 = var.azure_virtual_network_configuration_data[count.index].tags
+  source                    = "./modules/azure"
+  count                     = length(var.azure_virtual_network_configuration_data)
+  location                  = var.azure_virtual_network_configuration_data[count.index].location
+  resource_group_name       = var.azure_virtual_network_configuration_data[count.index].resource_group_name
+  virtual_network_name      = var.azure_virtual_network_configuration_data[count.index].name
+  address_space             = var.azure_virtual_network_configuration_data[count.index].address_space
+  subnet_configuration_data = var.azure_virtual_network_configuration_data[count.index].subnet_configuration_data
+  tags                      = var.azure_virtual_network_configuration_data[count.index].tags
   providers = {
     azurerm = azurerm
   }

@@ -26,7 +26,6 @@ variable "azure_virtual_network_configuration_data" {
     subnet_configuration_data = list(object({
       address_prefixes        = list(string)
       name                    = string
-      tags                    = map(string)
     }))
     tags                      = map(string)
   }))

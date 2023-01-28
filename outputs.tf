@@ -19,7 +19,12 @@ output "aws_secondary_subnet_ids" {
 }
 
 output "azure_virtual_network_ids" {
-  description = "Azure Primary Virtual Network IDs"
+  description = "Azure Virtual Network IDs"
   value       = module.azure.*.virtual_network_id
+}
+
+output "azure_subnet_ids" {
+  description = "Azure Subnet IDs"
+  value       = module.azure.*.subnet_ids
 }
 
