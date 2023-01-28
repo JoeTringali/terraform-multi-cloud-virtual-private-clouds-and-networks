@@ -26,12 +26,6 @@ provider "aws" {
 
 provider "azurerm" {
   features {}
-  alias                      = "primary"
   skip_provider_registration = true
 }
 
-provider "azurerm" {
-  features {}
-  alias                      = "secondary"
-  skip_provider_registration = true
-}

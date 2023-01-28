@@ -16,12 +16,6 @@ variable "aws_vpc_configuration_data" {
 
 ## Azure Variables
 
-variable "enable_azure" {
-  description = "Enable / Disable Azure Deployment"
-  type        = bool
-  default     = false
-}
-
 variable "azure_virtual_network_configuration_data" {
   description = "Azure Virtual Network Configuration Data"
   type = list(object({

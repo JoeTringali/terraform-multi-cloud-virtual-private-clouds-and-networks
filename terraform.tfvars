@@ -14,7 +14,6 @@ aws_vpc_configuration_data = [
 
 ## Azure Variables
 
-enable_azure = true
 azure_virtual_network_configuration_data = [
   {
     address_space       = ["10.128.0.0/16"]
