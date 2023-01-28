@@ -7,23 +7,23 @@ aws_vpc_configuration_data = [
     subnet_configuration_data = [
       {
         availability_zone     = "us-east-1a"
-        cidr_block            = "10.0.0.0/24"
+        cidr_block            = "10.0.0.0/22"
         tags                  = {
-          Name                = "vpc-1-subnet-1"
+          Name                = "vpc-1-subnet-1-A"
         }
       },
       {
         availability_zone     = "us-east-1b"
-        cidr_block            = "10.0.1.0/24"
+        cidr_block            = "10.0.64.0/22"
         tags                  = {
-          Name                = "vpc-1-subnet-2"
+          Name                = "vpc-1-subnet-1-B"
         }
       },
       {
         availability_zone     = "us-east-1c"
-        cidr_block            = "10.0.2.0/24"
+        cidr_block            = "10.0.128.0/22"
         tags                  = {
-          Name                = "vpc-1-subnet-3"
+          Name                = "vpc-1-subnet-1-C"
         }
       }
     ]
@@ -37,23 +37,23 @@ aws_vpc_configuration_data = [
     subnet_configuration_data = [
       {
         availability_zone     = "us-west-1c"
-        cidr_block            = "10.32.0.0/24"
+        cidr_block            = "10.32.0.0/22"
         tags                  = {
-          Name                = "vpc-2-subnet-1"
+          Name                = "vpc-2-subnet-1-A"
         }
       },
       {
         availability_zone     = "us-west-1b"
-        cidr_block            = "10.32.1.0/24"
+        cidr_block            = "10.32.64.0/22"
         tags                  = {
-          Name                = "vpc-2-subnet-2"
+          Name                = "vpc-2-subnet-1-B"
         }
       },
       {
         availability_zone     = "us-west-1c"
-        cidr_block            = "10.32.2.0/24"
+        cidr_block            = "10.32.128.0/22"
         tags                  = {
-          Name                = "vpc-2-subnet-3"
+          Name                = "vpc-2-subnet-1-C"
         }
       }
     ]
@@ -75,14 +75,6 @@ azure_virtual_network_configuration_data = [
       {
         address_prefixes      = ["10.64.0.0/24"]
         name                  = "vn-1-subnet-1"
-      },
-      {
-        address_prefixes      = ["10.64.1.0/24"]
-        name                  = "vn-1-subnet-2"
-      },
-      {
-        address_prefixes      = ["10.64.2.0/24"]
-        name                  = "vn-1-subnet-3"
       }
     ]
     tags                      = {
@@ -98,14 +90,6 @@ azure_virtual_network_configuration_data = [
       {
         address_prefixes      = ["10.96.0.0/24"]
         name                  = "vn-2-subnet-1"
-      },
-      {
-        address_prefixes      = ["10.96.1.0/24"]
-        name                  = "vn-2-subnet-2"
-      },
-      {
-        address_prefixes      = ["10.96.2.0/24"]
-        name                  = "vn-2-subnet-3"
       }
     ]
     tags                      = {
