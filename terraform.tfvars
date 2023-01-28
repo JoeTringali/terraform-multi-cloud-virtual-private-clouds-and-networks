@@ -7,21 +7,21 @@ aws_vpc_configuration_data = [
     subnet_configuration_data = [
       {
         availability_zone     = "us-east-1a"
-        cidr_block            = "10.0.0.0/22"
+        cidr_block            = "10.0.0.0/24"
         tags                  = {
           Name                = "vpc-1-subnet-1-A"
         }
       },
       {
         availability_zone     = "us-east-1b"
-        cidr_block            = "10.0.64.0/22"
+        cidr_block            = "10.0.0.1/24"
         tags                  = {
           Name                = "vpc-1-subnet-1-B"
         }
       },
       {
         availability_zone     = "us-east-1c"
-        cidr_block            = "10.0.128.0/22"
+        cidr_block            = "10.0.0.2/24"
         tags                  = {
           Name                = "vpc-1-subnet-1-C"
         }
@@ -37,21 +37,21 @@ aws_vpc_configuration_data = [
     subnet_configuration_data = [
       {
         availability_zone     = "us-west-1c"
-        cidr_block            = "10.32.0.0/22"
+        cidr_block            = "10.32.0.0/24"
         tags                  = {
           Name                = "vpc-2-subnet-1-A"
         }
       },
       {
         availability_zone     = "us-west-1b"
-        cidr_block            = "10.32.64.0/22"
+        cidr_block            = "10.32.0.1/24"
         tags                  = {
           Name                = "vpc-2-subnet-1-B"
         }
       },
       {
         availability_zone     = "us-west-1c"
-        cidr_block            = "10.32.128.0/22"
+        cidr_block            = "10.32.0.2/24"
         tags                  = {
           Name                = "vpc-2-subnet-1-C"
         }
@@ -73,7 +73,7 @@ azure_virtual_network_configuration_data = [
     resource_group_name       = "my-resource-group"
     subnet_configuration_data = [
       {
-        address_prefixes      = ["10.64.0.0/24"]
+        address_prefixes      = ["10.64.0.0/22"]
         name                  = "vn-1-subnet-1"
       }
     ]
@@ -88,7 +88,7 @@ azure_virtual_network_configuration_data = [
     resource_group_name       = "my-resource-group"
     subnet_configuration_data = [
       {
-        address_prefixes      = ["10.96.0.0/24"]
+        address_prefixes      = ["10.96.0.0/22"]
         name                  = "vn-2-subnet-1"
       }
     ]
