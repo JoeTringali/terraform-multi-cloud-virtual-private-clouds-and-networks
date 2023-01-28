@@ -1,11 +1,5 @@
 ## AWS Variables
 
-variable "enable_aws" {
-  description = "Enable / Disable AWS Deployment"
-  type        = bool
-  default     = false
-}
-
 variable "aws_vpc_configuration_data" {
   description = "AWS VPC Configuration Data"
   type = list(object({
