@@ -14,14 +14,14 @@ aws_vpc_configuration_data = [
       },
       {
         availability_zone     = "us-east-1b"
-        cidr_block            = "10.0.0.1/24"
+        cidr_block            = "10.0.1.0/24"
         tags                  = {
           Name                = "vpc-1-subnet-1-B"
         }
       },
       {
         availability_zone     = "us-east-1c"
-        cidr_block            = "10.0.0.2/24"
+        cidr_block            = "10.0.2.0/24"
         tags                  = {
           Name                = "vpc-1-subnet-1-C"
         }
@@ -44,14 +44,14 @@ aws_vpc_configuration_data = [
       },
       {
         availability_zone     = "us-west-1b"
-        cidr_block            = "10.32.0.1/24"
+        cidr_block            = "10.32.1.0/24"
         tags                  = {
           Name                = "vpc-2-subnet-1-B"
         }
       },
       {
         availability_zone     = "us-west-1c"
-        cidr_block            = "10.32.0.2/24"
+        cidr_block            = "10.32.2.0/24"
         tags                  = {
           Name                = "vpc-2-subnet-1-C"
         }
