@@ -39,35 +39,36 @@ terminal session:
 ```
 ## AWS Variables
 
-enable_aws = true
-aws_vpc_configuration_data = [
-  {
-    cidr_block = "10.0.0.0/16"
-    region     = "us-east-1"
-  },
-  {
-    cidr_block = "10.64.0.0/16"
-    region     = "us-west-1"
-  }
-]
+variable "aws_vpc_configuration_data" {
+  description = "AWS VPC Configuration Data"
+  type = list(object({
+    cidr_block = string
+    region     = string
+    subnet_configuration_data = list(object({
+      availability_zone = string
+      cidr_block        = string
+      tags              = map(string)
+    }))
+    tags = map(string)
+  }))
+}
 
 ## Azure Variables
 
-enable_azure = true
-azure_virtual_network_configuration_data = [
-  {
-    address_space       = ["10.128.0.0/16"]
-    location            = "eastus"
-    name                = "my-primary-vn"
-    resource_group_name = "my-resource-group"
-  },
-  {
-    address_space       = ["10.192.0.0/16"]
-    location            = "westus"
-    name                = "ny-secondary-vn"
-    resource_group_name = "my-resource-group"
-  }
-]
+variable "azure_virtual_network_configuration_data" {
+  description = "Azure Virtual Network Configuration Data"
+  type = list(object({
+    address_space       = list(string)
+    location            = string
+    name                = string
+    resource_group_name = string
+    subnet_configuration_data = list(object({
+      address_prefixes = list(string)
+      name             = string
+    }))
+    tags = map(string)
+  }))
+}
 ```
 
 3. Initialize the working directory:
