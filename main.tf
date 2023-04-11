@@ -2,6 +2,7 @@ module "aws_primary" {
   source                    = "./modules/aws"
   count                     = length(var.aws_vpc_configuration_data) > 0 ? 1 : 0
   cidr_block                = var.aws_vpc_configuration_data[0].cidr_block
+  enable_dns_support        = var.aws_vpc_configuration_data[0].enable_dns_support
   subnet_configuration_data = var.aws_vpc_configuration_data[0].subnet_configuration_data
   tags                      = var.aws_vpc_configuration_data[0].tags
   providers = {
@@ -13,6 +14,7 @@ module "aws_secondary" {
   source                    = "./modules/aws"
   count                     = length(var.aws_vpc_configuration_data) > 1 ? 1 : 0
   cidr_block                = var.aws_vpc_configuration_data[1].cidr_block
+  enable_dns_support        = var.aws_vpc_configuration_data[1].enable_dns_support
   subnet_configuration_data = var.aws_vpc_configuration_data[1].subnet_configuration_data
   tags                      = var.aws_vpc_configuration_data[1].tags
   providers = {

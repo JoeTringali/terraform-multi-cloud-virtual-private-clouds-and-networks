@@ -3,8 +3,9 @@
 variable "aws_vpc_configuration_data" {
   description = "AWS VPC Configuration Data"
   type = list(object({
-    cidr_block = string
-    region     = string
+    cidr_block         = string
+    enable_dns_support = bool
+    region             = string
     subnet_configuration_data = list(object({
       availability_zone = string
       cidr_block        = string

@@ -2,8 +2,9 @@
 
 aws_vpc_configuration_data = [
   {
-    cidr_block = "10.0.0.0/16"
-    region     = "us-east-1"
+    cidr_block         = "10.0.0.0/16"
+    enable_dns_support = true
+    region             = "us-east-1"
     subnet_configuration_data = [
       {
         availability_zone = "us-east-1a"
@@ -32,8 +33,9 @@ aws_vpc_configuration_data = [
     }
   },
   {
-    cidr_block = "10.32.0.0/16"
-    region     = "us-west-1"
+    cidr_block         = "10.32.0.0/16"
+    enable_dns_support = true
+    region             = "us-west-1"
     subnet_configuration_data = [
       {
         availability_zone = "us-west-1c"
