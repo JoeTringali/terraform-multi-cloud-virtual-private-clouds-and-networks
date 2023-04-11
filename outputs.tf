@@ -1,21 +1,11 @@
-output "aws_primary_vpc_id" {
-  description = "AWS Primary VPC ID"
-  value       = module.aws_primary.*.vpc_id
+output "aws_vpc_ids" {
+  description = "AWS Virtual Private Cloud IDs"
+  value       = setunion(module.aws0.*.vpc_id, module.aws1.*.vpc_id)
 }
 
-output "aws_primary_subnet_ids" {
+output "aws_subnet_ids" {
   description = "AWS Subnet IDs"
-  value       = module.aws_primary.*.subnet_ids
-}
-
-output "aws_secondary_vpc_id" {
-  description = "AWS Secondary VPC ID"
-  value       = module.aws_secondary.*.vpc_id
-}
-
-output "aws_secondary_subnet_ids" {
-  description = "AWS Subnet IDs"
-  value       = module.aws_secondary.*.subnet_ids
+  value       = setunion(module.aws0.*.subnet_ids, module.aws1.*.subnet_ids)
 }
 
 output "azure_virtual_network_ids" {

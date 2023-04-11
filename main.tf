@@ -1,4 +1,4 @@
-module "aws_primary" {
+module "aws0" {
   source                    = "./modules/aws"
   count                     = length(var.aws_vpc_configuration_data) > 0 ? 1 : 0
   cidr_block                = var.aws_vpc_configuration_data[0].cidr_block
@@ -10,7 +10,7 @@ module "aws_primary" {
   }
 }
 
-module "aws_secondary" {
+module "aws1" {
   source                    = "./modules/aws"
   count                     = length(var.aws_vpc_configuration_data) > 1 ? 1 : 0
   cidr_block                = var.aws_vpc_configuration_data[1].cidr_block
