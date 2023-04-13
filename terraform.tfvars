@@ -71,31 +71,31 @@ azure_virtual_network_configuration_data = [
   {
     address_space       = ["10.64.0.0/16"]
     location            = "eastus"
-    name                = "my-primary-vn"
+    name                = "my-primary-vnet"
     resource_group_name = "my-resource-group"
     subnet_configuration_data = [
       {
         address_prefixes = ["10.64.0.0/22"]
-        name             = "vn-1-subnet-1"
+        name             = "vnet-1-subnet-1"
       }
     ]
     tags = {
-      Name = "vn-1"
+      Name = "vnet-1"
     }
   },
   {
     address_space       = ["10.96.0.0/16"]
     location            = "westus"
-    name                = "my-secondary-vn"
+    name                = "my-secondary-vnet"
     resource_group_name = "my-resource-group"
     subnet_configuration_data = [
       {
         address_prefixes = ["10.96.0.0/22"]
-        name             = "vn-2-subnet-1"
+        name             = "vnet-2-subnet-1"
       }
     ]
     tags = {
-      Name = "vn-2"
+      Name = "vnet-2"
     }
   }
 ]
