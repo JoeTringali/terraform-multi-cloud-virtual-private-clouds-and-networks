@@ -72,7 +72,7 @@ azure_virtual_network_configuration_data = [
     address_space       = ["10.128.0.0/16"]
     location            = "eastus"
     name                = "my-primary-vnet"
-    resource_group_name = "my-resource-group"
+    resource_group_name = "rg-us-east-my-resource-group"
     subnet_configuration_data = [
       {
         address_prefixes = ["10.128.0.0/24"]
@@ -87,7 +87,7 @@ azure_virtual_network_configuration_data = [
     address_space       = ["10.192.0.0/16"]
     location            = "westus"
     name                = "my-secondary-vnet"
-    resource_group_name = "my-resource-group"
+    resource_group_name = "rg-us-east-my-resource-group"
     subnet_configuration_data = [
       {
         address_prefixes = ["10.192.0.0/24"]
