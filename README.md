@@ -34,153 +34,153 @@ terminal session:
 1.  Download code from GitHub repo
     (<https://github.com/JoeTringali/terraform-multi-cloud-virtual-private-clouds-and-virtual-networks>).
 
-2.  Edit the terraform.tfvars file to include the configuration data for the AWS VPCs and/or Azure virtual networks to be created:
+1.  Edit the terraform.tfvars file to include the configuration data for the AWS VPCs and/or Azure virtual networks to be created:
 
-```
-## AWS Variables
+    ```
+    ## AWS Variables
 
-aws_vpc_configuration_data = [
-  {
-    cidr_block         = "10.0.0.0/16"
-    enable_dns_support = true
-    region             = "us-east-1"
-    subnet_configuration_data = [
+    aws_vpc_configuration_data = [
       {
-        availability_zone = "us-east-1a"
-        cidr_block        = "10.0.0.0/26"
+        cidr_block         = "10.0.0.0/16"
+        enable_dns_support = true
+        region             = "us-east-1"
+        subnet_configuration_data = [
+          {
+            availability_zone = "us-east-1a"
+            cidr_block        = "10.0.0.0/26"
+            tags = {
+              Name = "vpc-1-subnet-1-A"
+            }
+          },
+          {
+            availability_zone = "us-east-1b"
+            cidr_block        = "10.0.0.64/26"
+            tags = {
+              Name = "vpc-1-subnet-1-B"
+            }
+          },
+          {
+            availability_zone = "us-east-1c"
+            cidr_block        = "10.0.0.128/26"
+            tags = {
+              Name = "vpc-1-subnet-1-C"
+            }
+          }
+        ]
         tags = {
-          Name = "vpc-1-subnet-1-A"
+          Name = "vpc-1"
         }
       },
       {
-        availability_zone = "us-east-1b"
-        cidr_block        = "10.0.0.64/26"
+        cidr_block         = "10.64.0.0/16"
+        enable_dns_support = true
+        region             = "us-west-1"
+        subnet_configuration_data = [
+          {
+            availability_zone = "us-west-1c"
+            cidr_block        = "10.64.0.0/26"
+            tags = {
+              Name = "vpc-2-subnet-1-A"
+            }
+          },
+          {
+            availability_zone = "us-west-1b"
+            cidr_block        = "10.64.0.64/26"
+            tags = {
+              Name = "vpc-2-subnet-1-B"
+            }
+          },
+          {
+            availability_zone = "us-west-1c"
+            cidr_block        = "10.64.0.128/26"
+            tags = {
+              Name = "vpc-2-subnet-1-C"
+            }
+          }
+        ]
         tags = {
-          Name = "vpc-1-subnet-1-B"
+          Name = "vpc-2"
+        }
+      }
+    ]
+
+    ## Azure Variables
+
+    azure_virtual_network_configuration_data = [
+      {
+        address_space       = ["10.128.0.0/16"]
+        location            = "eastus"
+        name                = "my-primary-vnet"
+        resource_group_name = "rg-us-east-my-resource-group"
+        subnet_configuration_data = [
+          {
+            address_prefixes = ["10.128.0.0/24"]
+            name             = "vnet-1-subnet-1"
+          }
+        ]
+        tags = {
+          Name = "vnet-1"
         }
       },
       {
-        availability_zone = "us-east-1c"
-        cidr_block        = "10.0.0.128/26"
+        address_space       = ["10.192.0.0/16"]
+        location            = "westus"
+        name                = "my-secondary-vnet"
+        resource_group_name = "rg-us-east-my-resource-group"
+        subnet_configuration_data = [
+          {
+            address_prefixes = ["10.192.0.0/24"]
+            name             = "vnet-2-subnet-1"
+          }
+        ]
         tags = {
-          Name = "vpc-1-subnet-1-C"
+          Name = "vnet-2"
         }
       }
     ]
-    tags = {
-      Name = "vpc-1"
-    }
-  },
-  {
-    cidr_block         = "10.64.0.0/16"
-    enable_dns_support = true
-    region             = "us-west-1"
-    subnet_configuration_data = [
-      {
-        availability_zone = "us-west-1c"
-        cidr_block        = "10.64.0.0/26"
-        tags = {
-          Name = "vpc-2-subnet-1-A"
-        }
-      },
-      {
-        availability_zone = "us-west-1b"
-        cidr_block        = "10.64.0.64/26"
-        tags = {
-          Name = "vpc-2-subnet-1-B"
-        }
-      },
-      {
-        availability_zone = "us-west-1c"
-        cidr_block        = "10.64.0.128/26"
-        tags = {
-          Name = "vpc-2-subnet-1-C"
-        }
-      }
-    ]
-    tags = {
-      Name = "vpc-2"
-    }
-  }
-]
+    ```
 
-## Azure Variables
+1. Initialize the working directory:
 
-azure_virtual_network_configuration_data = [
-  {
-    address_space       = ["10.128.0.0/16"]
-    location            = "eastus"
-    name                = "my-primary-vnet"
-    resource_group_name = "rg-us-east-my-resource-group"
-    subnet_configuration_data = [
-      {
-        address_prefixes = ["10.128.0.0/24"]
-        name             = "vnet-1-subnet-1"
-      }
-    ]
-    tags = {
-      Name = "vnet-1"
-    }
-  },
-  {
-    address_space       = ["10.192.0.0/16"]
-    location            = "westus"
-    name                = "my-secondary-vnet"
-    resource_group_name = "rg-us-east-my-resource-group"
-    subnet_configuration_data = [
-      {
-        address_prefixes = ["10.192.0.0/24"]
-        name             = "vnet-2-subnet-1"
-      }
-    ]
-    tags = {
-      Name = "vnet-2"
-    }
-  }
-]
-```
+    ```
+      terraform init
+    ```
 
-3. Initialize the working directory:
+1.  Make sure `providers.tf` is formatted correctly:
 
-```
-  terraform init
-```
+    ```
+      terraform fmt
+    ```
 
-4.  Make sure `providers.tf` is formatted correctly:
+1. See what it's expecting for the resources to be deployed:
 
-```
-  terraform fmt
-```
+    ```
+      terraform plan
+    ```
+    > You should then see what the outputs will produce.
 
-5. See what it's expecting for the resources to be deployed:
+1.  Deploy your AWS VPCs and/or Azure virtual networks:
 
-```
-  terraform plan
-```
-> You should then see what the outputs will produce.
+    ```
+      terraform apply
+    ```
 
-6.  Deploy your AWS VPCs and/or Azure virtual networks:
+1. Enter `yes` at the prompt. It will then take a few minutes to finish running.
 
-```
-  terraform apply
-```
-
-7. Enter `yes` at the prompt. It will then take a few minutes to finish running.
-
-8. Monitor the progress and wait for the completion of the ```terraform apply``` command before
+1. Monitor the progress and wait for the completion of the ```terraform apply``` command before
 proceeding.
 
-9. Confirm that resources were deployed:
+1. Confirm that resources were deployed:
 
-```
-  terraform state list
-```
+    ```
+      terraform state list
+    ```
 
-10. Check the returned list of resources to ensure everything was successfully deployed.
+1. Check the returned list of resources to ensure everything was successfully deployed.
 
-11. In the [AWS Management Console browser window](https://aws.amazon.com/console/), navigate to **VPC** to verify that your VPCs are listed.
+1. In the [AWS Management Console browser window](https://aws.amazon.com/console/), navigate to **VPC** to verify that your VPCs are listed.
 
-12. In the [Azure Portal browser window](https://portal.azure.com/#home), navigate to **Virtual networks** and confirm that your virtual networks are listed.
+1. In the [Azure Portal browser window](https://portal.azure.com/#home), navigate to **Virtual networks** and confirm that your virtual networks are listed.
 
 ## Cleanup
 
