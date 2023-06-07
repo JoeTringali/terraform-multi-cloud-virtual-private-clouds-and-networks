@@ -110,7 +110,7 @@ terminal session:
       {
         address_space       = ["10.128.0.0/16"]
         location            = "eastus"
-        name                = "my-primary-vnet"
+        name                = "my-region-1-vnet"
         resource_group_name = "rg-us-east-my-resource-group"
         subnet_configuration_data = [
           {
@@ -125,7 +125,7 @@ terminal session:
       {
         address_space       = ["10.192.0.0/16"]
         location            = "westus"
-        name                = "my-secondary-vnet"
+        name                = "my-region-2-vnet"
         resource_group_name = "rg-us-east-my-resource-group"
         subnet_configuration_data = [
           {

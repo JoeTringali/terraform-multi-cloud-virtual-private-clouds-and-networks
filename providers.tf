@@ -15,12 +15,12 @@ terraform {
 }
 
 provider "aws" {
-  alias  = "primary"
+  alias  = "region_1"
   region = var.aws_vpc_configuration_data[0].region
 }
 
 provider "aws" {
-  alias  = "secondary"
+  alias  = "region_2"
   region = var.aws_vpc_configuration_data[1].region
 }
 

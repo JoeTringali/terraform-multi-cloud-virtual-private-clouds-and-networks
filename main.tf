@@ -6,7 +6,7 @@ module "aws0" {
   subnet_configuration_data = var.aws_vpc_configuration_data[0].subnet_configuration_data
   tags                      = var.aws_vpc_configuration_data[0].tags
   providers = {
-    aws = aws.primary
+    aws = aws.region_1
   }
 }
 
@@ -18,7 +18,7 @@ module "aws1" {
   subnet_configuration_data = var.aws_vpc_configuration_data[1].subnet_configuration_data
   tags                      = var.aws_vpc_configuration_data[1].tags
   providers = {
-    aws = aws.secondary
+    aws = aws.region_2
   }
 }
 
