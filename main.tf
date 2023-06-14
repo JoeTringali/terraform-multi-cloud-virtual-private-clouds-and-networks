@@ -1,4 +1,4 @@
-module "aws0" {
+module "aws_region_1" {
   source                    = "./modules/aws"
   count                     = length(var.aws_vpc_configuration_data) > 0 ? 1 : 0
   cidr_block                = var.aws_vpc_configuration_data[0].cidr_block
@@ -10,7 +10,7 @@ module "aws0" {
   }
 }
 
-module "aws1" {
+module "aws_region_2" {
   source                    = "./modules/aws"
   count                     = length(var.aws_vpc_configuration_data) > 1 ? 1 : 0
   cidr_block                = var.aws_vpc_configuration_data[1].cidr_block

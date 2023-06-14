@@ -1,11 +1,11 @@
 output "aws_vpc_ids" {
   description = "AWS Virtual Private Cloud IDs"
-  value       = concat(module.aws0.*.vpc_id, module.aws1.*.vpc_id)
+  value       = concat(module.aws_region_1.*.vpc_id, module.aws_region_2.*.vpc_id)
 }
 
 output "aws_subnet_ids" {
   description = "AWS Subnet IDs"
-  value       = concat(module.aws0.*.subnet_ids, module.aws1.*.subnet_ids)
+  value       = concat(module.aws_region_1.*.subnet_ids, module.aws_region_2.*.subnet_ids)
 }
 
 output "azure_virtual_network_ids" {
